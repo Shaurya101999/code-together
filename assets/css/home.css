@@ -1,0 +1,18 @@
+.data{
+    /* display: flex; */
+    text-align: center;
+}
+
+.container{
+    height: 70vh;
+    /* background-image: url('../images/codinggif.gif'); */
+    background-repeat: no-repeat;
+    text-align: center;
+}
+button{
+    display: inline-block;
+    margin-left: 2vw;
+}
+img{
+    width: 70vw;
+}

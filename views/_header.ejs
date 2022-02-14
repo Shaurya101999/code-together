@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/css/header.css">
+   
+<header>
+    <nav>
+        <h1 style="display: inline-block;">Code-Together</h1>
+        <% if(locals.user){ %> 
+            <a href="/user/sign-out"><button class="btn btn-outline-warning" style="float: right;" >Sign Out</button></a>
+        <% }else{ %>
+            <a href="/"><button class="btn btn-outline-warning" style="float: right;" >Home</button></a>
+        <% } %>
+    </nav>
+    <br><br>
+</header>

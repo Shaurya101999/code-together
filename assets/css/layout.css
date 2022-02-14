@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&family=Encode+Sans+Expanded:wght@500&family=Pacifico&family=Quintessential&family=Source+Code+Pro:wght@600&display=swap');
+.container{
+    text-align: center;
+    font-family: 'Comic Neue', cursive;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Quintessential', cursive;
+    font-family: 'Source Code Pro', monospace;
+}
+p{
+    color: grey;
+}
+

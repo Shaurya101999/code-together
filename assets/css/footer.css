@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&family=Pacifico&family=Quintessential&family=Source+Code+Pro:wght@600&display=swap');
+
+footer{
+    background-color: rgba(36, 80, 82, 0.884);
+    padding: 4vw;
+    text-align: center;
+    margin-top: 65vh;
+}
+footer p{
+    font-family: 'Comic Neue', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Quintessential', cursive;
+    font-family: 'Source Code Pro', monospace;
+    
+    color: white;
+}
