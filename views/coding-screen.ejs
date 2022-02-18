@@ -1,7 +1,19 @@
 <link rel="stylesheet" href="/css/code.css">
+
 <div class="container" style="display: flex;">
-    <div class="coding" style="width: 65vw; height: 50vw; border: 2px solid blue; ">
-        Code Screen
+
+    <div class="coding" >
+        
+    <button class="close btn btn-outline-danger">Save and finish Session</button> <br><br>
+        <label for="language">Language</label>
+        <select name="language" id="">
+            <option value="">Java</option>
+            <option value="">C</option>
+            <option value="">c++</option>
+            <option value="">Javascript</option>
+        </select>
+        <button class="run btn btn-outline-success">Compile and run</button>
+        <textarea id="editor"></textarea>
     </div>
     <div id="user-chat-box">
         <h4>Chat here</h4>
@@ -24,3 +36,50 @@
     
     </div>
 </div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="plugin/codemirror/lib/codemirror.js"></script>
+<script type="text/javascript" src="js/default.js"></script>
+
+<script>
+
+</script>
+
+<!-- chat box -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/chat_engine.js"></script>
+
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>');
+</script>
+<% } %>
+<!-- chat box end -->
+
+<!-- editor -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+</link>
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
+</script>
+<script>
+    
+    let textArea = document.getElementById('editor');
+    console.log(textArea);
+    let cm = new CodeMirror.fromTextArea(textArea , {
+        lineNumbers: true,
+        tabSize: 2,
+        // value: 'console.log("Hello, World");',
+        mode: 'javascript',
+      theme: 'monokai'
+
+    });
+    cm.setSize(900, 700);
+</script>
+
+<!-- editor end -->

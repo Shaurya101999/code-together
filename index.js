@@ -16,29 +16,33 @@ const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
 
-// chat
-let httpServer = require("http").createServer(app);
-let io = require("socket.io")(httpServer);
+// setting up chat server with socket.io
+// setup the chat server to be used with socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen(8000);
+console.log('chat server is listening on port 8000');
 
-let connections = [];
 
-io.on("connect", (socket) => {
-  connections.push(socket);
-  console.log(`${socket.id} has connected`);
+// let connections = [];
 
-  socket.on("propogate", (data) => {
-    connections.map((con) => {
-      if (con.id !== socket.id) {
-        con.emit("onpropogate", data);
-      }
-    });
-  });
+// io.on("connect", (socket) => {
+//   connections.push(socket);
+//   console.log(`${socket.id} has connected`);
 
-  socket.on("disconnect", (reason) => {
-    console.log(`${socket.id} is disconnected`);
-    connections = connections.filter((con) => con.id !== socket.id);
-  });
-});
+//   socket.on("propogate", (data) => {
+//     connections.map((con) => {
+//       if (con.id !== socket.id) {
+//         con.emit("onpropogate", data);
+//       }
+//     });
+//   });
+
+//   socket.on("disconnect", (reason) => {
+//     console.log(`${socket.id} is disconnected`);
+//     connections = connections.filter((con) => con.id !== socket.id);
+//   });
+// });
 //
 
 app.use(express.urlencoded());
